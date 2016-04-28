@@ -8,16 +8,18 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html">
 
 <dom-module id="camera-verification">
   <template>
     <style>
       :host {
         display: block;
+	
       }
       .camera-container{
         margin: 5px;
+	text-algin: center;
       }
       #image, #video{
         width: 100%;
@@ -50,6 +52,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
     <div class="camera-container">
+      <input type="text" value="{{netVerifyData.username::input}}" placeholder="Username">
       <div class="section-display">
         <img src="" id="image" hidden="{{!previewPhoto}}">
         <video autoplay id="video" hidden="{{previewPhoto}}"></video>
@@ -174,7 +177,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           this.netVerifyData.faceImage = str;
           this.imagePicture.src = this.image.src;
           this.notifyPath('netVerifyData.faceImage', this.netVerifyData.faceImage);
-
         }
 
         this.count = (this.count + 1) % 3
